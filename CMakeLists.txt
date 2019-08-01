@@ -1,0 +1,8 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)  
+PROJECT(Parallel_HEAT)                        
+enable_language (Fortran)
+SET(CMAKE_Fortran_COMPILER mpif90)
+set(CMAKE_Fortran_FLAGS "-ffpe-summary='none', -O3")
+file(GLOB SRC ./*.f90)
+ADD_EXECUTABLE(heat ${SRC})
+target_link_libraries(heat -lm -lmpi)
